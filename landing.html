@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanga - Japanese Restaurant | Waterfront Kuching</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #d32f2f;
+            --secondary-color: #1a1a1a;
+            --accent-color: #ffd700;
+            --light-bg: #f5f5f5;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--secondary-color);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #b71c1c 100%);
+            color: var(--white);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hero .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 2rem;
+            background-color: var(--light-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 4rem 2rem;
+        }
+
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .menu-card {
+            background-color: var(--white);
+            border: 2px solid var(--light-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .menu-card-header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .menu-card-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-card-header .price {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .menu-card-body {
+            padding: 1.5rem;
+        }
+
+        .menu-item {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--light-bg);
+            padding-bottom: 1rem;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .menu-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+        }
+
+        .menu-item p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* Location Section */
+        .location {
+            padding: 4rem 2rem;
+            background-color: var(--light-bg);
+        }
+
+        .location-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .location-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .location-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .location-card .icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .location-card p {
+            margin-bottom: 0.5rem;
+            line-height: 1.8;
+        }
+
+        .location-card .phone {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .location-card .hours {
+            background-color: var(--light-bg);
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .menu-container {
+                grid-template-columns: 1fr;
+            }
+
+            .location-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">🍱 SANGA</a>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#location">Location</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>🎌 SANGA Japanese Restaurant 🎌</h1>
+            <p>Authentic Japanese Cuisine | Waterfront Kuching</p>
+            <a href="#menu" class="cta-button">Explore Our Menu</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Welcome to Sanga</h2>
+            <div class="about-content">
+                <p>
+                    Sanga brings you the authentic flavors of Japan right here at Waterfront Kuching. 
+                    Our skilled chefs prepare each dish with precision and passion, using the finest 
+                    ingredients to create an unforgettable dining experience. Whether you're a sushi 
+                    enthusiast or a ramen lover, Sanga offers something for everyone.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <h2 class="section-title">Our Menu</h2>
+            <div class="menu-container">
+                <!-- Sushi & Rolls -->
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <h3>🍣 Sushi & Rolls</h3>
+                        <span class="price">RM 25 - 55</span>
+                    </div>
+                    <div class="menu-card-body">
+                        <div class="menu-item">
+                            <h4>California Roll</h4>
+                            <p>Crab, avocado, cucumber with sesame seeds</p>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Spicy Tuna Roll</h4>
+                            <p>Spicy tuna, cucumber, jalapeño with sriracha</p>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Dragon Roll</h4>
+                            <p>Shrimp tempura, avocado, and eel sauce</p>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Rainbow Sushi</h4>
+                            <p>Assorted sashimi on rice with fresh vegetables</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ramen & Noodles -->
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <h3>🍜 Ramen & Noodles</h3>
+                        <span class="price">RM 18 - 32</span>
+                    </div>
+                    <div class="menu-card-body">
+                        <div class="menu-item">
+                            <h4>Tonkotsu Ramen</h4>
+                            <p>Rich pork bone broth with chashu pork and egg</p>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Miso Ramen</h4>
+                            <p>Savory miso broth with mushrooms and sprouts</p>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Shoyu Ramen</h4>
+                            <p>Classic soy sauce broth with chicken and noodles</p>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Udon Noodles</h4>
+                            <p>Thick noodles in light dashi broth</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Donburi & Rice -->
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <h3>🍚 Donburi & Rice Bowls</h3>
+                        <span class="price">RM 22 - 38</span>
+                    </div>
+                    <div class="menu-card-body">
+                        <div class="menu-item">
+                            <h4>Katsudon</h4>
+                            <p>Breaded pork cutlet over rice with teriyaki sauce</p>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Oyakodon</h4>
+                            <p>Chicken and egg over steamed rice</p>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Unagi Don</h4>
+                            <p>Grilled eel with sweet sauce over rice</p>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Chirashi Bowl</h4>
+                            <p>Mixed sashimi and vegetables over sushi rice</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Appetizers -->
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <h3>🥟 Appetizers</h3>
+                        <span class="price">RM 12 - 28</span>
+                    </div>
+                    <div class="menu-card-body">
+                        <div class="menu-item">
+                            <h4>Vegetable Gyoza</h4>
+                            <p>Pan-fried dumplings with dipping sauce</p>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Edamame</h4>
+                            <p>Steamed soybeans with sea salt</p>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Tempura Shrimp</h4>
+                            <p>Battered and fried with tempura sauce</p>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Takoyaki</h4>
+                            <p>Octopus balls with bonito flakes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beverages -->
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <h3>🥤 Beverages</h3>
+                        <span class="price">RM 5 - 18</span>
+                    </div>
+                    <div class="menu-card-body">
+                        <div class="menu-item">
+                            <h4>Japanese Green Tea</h4>
+                            <p>Hot or cold matcha and sencha tea</p>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Sake</h4>
+                            <p>Premium Japanese rice wine selection</p>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Soft Drinks</h4>
+                            <p>Assorted local and imported beverages</p>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Yuzu Lemonade</h4>
+                            <p>Fresh yuzu citrus refresher</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desserts -->
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <h3>🍰 Desserts</h3>
+                        <span class="price">RM 8 - 15</span>
+                    </div>
+                    <div class="menu-card-body">
+                        <div class="menu-item">
+                            <h4>Mochi Ice Cream</h4>
+                            <p>Chewy rice cake with ice cream (various flavors)</p>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Matcha Cheesecake</h4>
+                            <p>Green tea flavored creamy cheesecake</p>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Dorayaki</h4>
+                            <p>Red bean paste between fluffy pancakes</p>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Kakigori</h4>
+                            <p>Shaved ice with fruit syrup</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location" id="location">
+        <div class="container">
+            <h2 class="section-title">Visit Us</h2>
+            <div class="location-container">
+                <!-- Waterfront Main Branch -->
+                <div class="location-card">
+                    <div class="icon">📍</div>
+                    <h3>Waterfront Main Branch</h3>
+                    <p>
+                        <strong>Address:</strong><br>
+                        102A, Level 2<br>
+                        Kuching Waterfront Plaza<br>
+                        Jalan Tun Abang Haji Openg<br>
+                        93000 Kuching, Sarawak
+                    </p>
+                    <p class="phone">📞 +60 82 123 4567</p>
+                    <div class="hours">
+                        <strong>Opening Hours:</strong><br>
+                        Monday - Thursday: 11:00 AM - 10:00 PM<br>
+                        Friday - Saturday: 11:00 AM - 11:00 PM<br>
+                        Sunday: 11:00 AM - 9:00 PM
+                    </div>
+                </div>
+
+                <!-- Waterfront Riverside -->
+                <div class="location-card">
+                    <div class="icon">🏢</div>
+                    <h3>Waterfront Riverside Branch</h3>
+                    <p>
+                        <strong>Address:</strong><br>
+                        Suite 15A<br>
+                        The Spring Waterfront<br>
+                        Jalan Tabuan<br>
+                        93100 Kuching, Sarawak
+                    </p>
+                    <p class="phone">📞 +60 82 234 5678</p>
+                    <div class="hours">
+                        <strong>Opening Hours:</strong><br>
+                        Monday - Thursday: 12:00 PM - 10:00 PM<br>
+                        Friday - Saturday: 12:00 PM - 11:00 PM<br>
+                        Sunday: 12:00 PM - 9:00 PM
+                    </div>
+                </div>
+
+                <!-- Waterfront Downtown -->
+                <div class="location-card">
+                    <div class="icon">🍜</div>
+                    <h3>Waterfront Downtown Kiosk</h3>
+                    <p>
+                        <strong>Address:</strong><br>
+                        Counter 3<br>
+                        Waterfront Food Court Complex<br>
+                        Jalan Sri Kuching<br>
+                        93100 Kuching, Sarawak
+                    </p>
+                    <p class="phone">📞 +60 82 345 6789</p>
+                    <div class="hours">
+                        <strong>Opening Hours:</strong><br>
+                        Monday - Sunday<br>
+                        10:00 AM - 10:00 PM
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/CTA Section -->
+    <section class="about" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="about-content">
+                <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+                    Have questions or want to make a reservation? We'd love to hear from you!
+                </p>
+                <p style="font-size: 1rem;">
+                    <strong>Email:</strong> <a href="mailto:hello@sangajapanese.com" style="color: var(--primary-color);">hello@sangajapanese.com</a><br>
+                    <strong>General Inquiries:</strong> +60 82 123 4567<br>
+                    <strong>Follow us:</strong> <a href="#" style="color: var(--primary-color);">Facebook</a> | 
+                    <a href="#" style="color: var(--primary-color);">Instagram</a> | 
+                    <a href="#" style="color: var(--primary-color);">TikTok</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Sanga Japanese Restaurant. All rights reserved.</p>
+        <p>Bringing authentic Japanese cuisine to Waterfront Kuching</p>
+    </footer>
+</body>
+</html>
