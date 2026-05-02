@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #d32f2f;
+    --secondary-color: #1a1a1a;
+    --accent-color: #ffd700;
+    --light-bg: #f5f5f5;
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--secondary-color);
+}
+
+/* NAV */
+nav {
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+
+nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(135deg, #d32f2f, #b71c1c);
+    color: white;
+    text-align: center;
+    padding: 6rem 2rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    background: var(--accent-color);
+    color: black;
+    text-decoration: none;
+}
+
+/* SECTIONS */
+.section-title {
+    text-align: center;
+    margin: 3rem 0;
+    color: var(--primary-color);
+}
+
+/* ABOUT */
+.about {
+    padding: 4rem 2rem;
+    background: var(--light-bg);
+}
+
+.about-content {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+/* MENU */
+.menu {
+    padding: 4rem 2rem;
+}
+
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.menu-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.menu-card-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem;
+}
+
+.menu-card-body {
+    padding: 1rem;
+}
+
+.menu-item {
+    margin-bottom: 1rem;
+}
+
+/* LOCATION */
+.location {
+    padding: 4rem 2rem;
+    background: var(--light-bg);
+}
+
+.location-card {
+    background: white;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+}
+
+/* FOOTER */
+footer {
+    background: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    nav ul {
+        gap: 1rem;
+    }
+}
