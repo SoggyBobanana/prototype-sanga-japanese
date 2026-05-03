@@ -117,8 +117,9 @@ nav a {
 
 .menu-featured {
     display: flex;
-    align-items: center;
-    background: rgba(255,255,255,0.95);
+    align-items: stretch;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -128,7 +129,7 @@ nav a {
 
 .menu-featured-image {
     flex: 0 0 280px;
-    min-width: 220px;
+    min-width: 280px;
     height: 280px;
     overflow: hidden;
     background: #f7f7f7;
@@ -139,6 +140,7 @@ nav a {
     height: 100%;
     object-fit: cover;
     display: block;
+    border-right: 1px solid #eee;
 }
 
 .menu-featured-content {
