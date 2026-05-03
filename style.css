@@ -16,6 +16,9 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--secondary-color);
+    background-image: url('sanga-web-bg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 /* NAV */
@@ -111,41 +114,61 @@ nav a {
     padding: 4rem 2rem;
 }
 
-.menu-image {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    display: block;
-    margin: 0 auto 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.menu-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.menu-card {
+.menu-featured {
+    display: flex;
+    align-items: center;
     background: white;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 700px;
+    margin: 0 auto;
 }
 
-.menu-card-header {
-    background: var(--primary-color);
-    color: white;
-    padding: 1rem;
+.menu-featured-image {
+    flex: 0 0 280px;
+    height: 280px;
+    overflow: hidden;
 }
 
-.menu-card-body {
-    padding: 1rem;
+.menu-featured-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.menu-item {
-    margin-bottom: 1rem;
+.menu-featured-content {
+    flex: 1;
+    padding: 2rem;
+}
+
+.menu-featured-content h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+}
+
+.menu-description {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+}
+
+.menu-details {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.menu-price {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+}
+
+.menu-rating {
+    font-size: 0.95rem;
+    color: #f39c12;
 }
 
 /* LOCATION */
