@@ -3,195 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanga - Japanese Restaurant | Waterfront Kuching</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Sanga Admin Panel</title>
+    <link rel="stylesheet" href="admin.css">
 </head>
-
 <body>
-
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <a href="#" class="logo">🍱 SANGA</a>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#location">Location</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <!-- Admin Navigation -->
+    <nav class="admin-nav">
+        <div class="admin-container">
+            <div class="admin-logo">🍱 SANGA ADMIN</div>
+            <ul class="admin-nav-links">
+                <li><a href="index.html" class="back-link">← Back to Site</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <h1>🎌 SANGA Japanese Restaurant 🎌</h1>
-            <p>Authentic Japanese Cuisine | Waterfront Kuching</p>
-            <a href="#menu" class="cta-button">Explore Our Menu</a>
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <div class="admin-container">
+            <h1>Menu Management Dashboard</h1>
+            <p>Test your fake database with menu items</p>
         </div>
-    </section>
+    </header>
 
-    <!-- About -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title">Welcome to Sanga</h2>
-            <div class="about-content">
-                <p>
-                    Sanga brings you the authentic flavors of Japan right here at Waterfront Kuching.
-                    Our skilled chefs prepare each dish with precision and passion.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Menu -->
-<section class="menu" id="menu">
-    <div class="container">
-        <h2 class="section-title">Our Menu</h2>
-
-        <!-- NEW WRAPPER (THIS FIXES SPACING) -->
-        <div class="menu-grid">
-
-            <!-- CARD 1 -->
-            <div class="menu-featured">
-                <div class="menu-featured-image">
-                    <img src="bento.jpg" alt="Premium Bento Box">
-                </div>
-                <div class="menu-featured-content">
-                    <h3>🍱 Premium Bento Box</h3>
-                    <p class="menu-description">
-                        Assorted selection of fresh sushi, nigiri, and rolls served with miso soup and pickled vegetables.
-                        Expertly prepared with premium ingredients.
-                    </p>
-                    <div class="menu-details">
-                        <div class="menu-price"><strong>RM 45</strong></div>
-                        <div class="menu-rating">⭐ 8.5/10</div>
+    <!-- Main Admin Content -->
+    <div class="admin-container main-content">
+        <div class="admin-layout">
+            <!-- Left Column: Add/Edit Form -->
+            <div class="admin-form-section">
+                <h2>Add New Item</h2>
+                <form id="menuForm" class="menu-form">
+                    <div class="form-group">
+                        <label for="itemName">Item Name</label>
+                        <input type="text" id="itemName" placeholder="e.g., Sushi Roll" required>
                     </div>
-                </div>
+
+                    <div class="form-group">
+                        <label for="itemPrice">Price (RM)</label>
+                        <input type="number" id="itemPrice" placeholder="45" step="0.01" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="itemRating">Rating (0-10)</label>
+                        <input type="number" id="itemRating" placeholder="8.5" min="0" max="10" step="0.1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="itemDescription">Description</label>
+                        <textarea id="itemDescription" placeholder="Describe the dish..." rows="4"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Add Item</button>
+                </form>
             </div>
 
-            <!-- CARD 2 -->
-            <div class="menu-featured">
-                <div class="menu-featured-image">
-                    <img src="bento.jpg" alt="Premium Bento Box">
-                </div>
-                <div class="menu-featured-content">
-                    <h3>🍱 Premium Bento Box</h3>
-                    <p class="menu-description">
-                        Assorted selection of fresh sushi, nigiri, and rolls served with miso soup and pickled vegetables.
-                        Expertly prepared with premium ingredients.
-                    </p>
-                    <div class="menu-details">
-                        <div class="menu-price"><strong>RM 45</strong></div>
-                        <div class="menu-rating">⭐ 8.5/10</div>
-                    </div>
+            <!-- Right Column: Menu List -->
+            <div class="admin-list-section">
+                <h2>Menu Items Database</h2>
+                <div id="menuList" class="menu-list">
+                    <p class="empty-message">No items yet. Add one to get started!</p>
                 </div>
             </div>
-
-            <!-- CARD 3 -->
-            <div class="menu-featured">
-                <div class="menu-featured-image">
-                    <img src="sushi-maki.jpg" alt="Maki Sushi Platter">
-                </div>
-                <div class="menu-featured-content">
-                    <h3>🍣 Maki Sushi Platter</h3>
-                    <p class="menu-description">
-                        A colorful selection of fresh maki rolls including salmon, tuna, and avocado rolls served with soy sauce and wasabi.
-                    </p>
-                    <div class="menu-details">
-                        <div class="menu-price"><strong>RM 38</strong></div>
-                        <div class="menu-rating">⭐ 9.0/10</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- CARD 4 -->
-            <div class="menu-featured">
-                <div class="menu-featured-image">
-                    <img src="ramen.jpg" alt="Tonkotsu Ramen">
-                </div>
-                <div class="menu-featured-content">
-                    <h3>🍜 Tonkotsu Ramen</h3>
-                    <p class="menu-description">
-                        Rich pork bone broth ramen served with chashu pork, soft-boiled egg, nori, and spring onions.
-                    </p>
-                    <div class="menu-details">
-                        <div class="menu-price"><strong>RM 32</strong></div>
-                        <div class="menu-rating">⭐ 9.2/10</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CARD 5 -->
-            <div class="menu-featured">
-                <div class="menu-featured-image">
-                    <img src="tempura.jpg" alt="Tempura Set">
-                </div>
-                <div class="menu-featured-content">
-                    <h3>🍤 Tempura Set</h3>
-                    <p class="menu-description">
-                        Crispy battered prawns and vegetables served with tempura dipping sauce and steamed rice.
-                    </p>
-                    <div class="menu-details">
-                        <div class="menu-price"><strong>RM 28</strong></div>
-                        <div class="menu-rating">⭐ 8.7/10</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- CARD 6 -->
-            <div class="menu-featured">
-                <div class="menu-featured-image">
-                    <img src="donburi.jpg" alt="Chicken Teriyaki Donburi">
-                </div>
-                <div class="menu-featured-content">
-                    <h3>🍚 Chicken Teriyaki Donburi</h3>
-                    <p class="menu-description">
-                        Grilled chicken glazed with teriyaki sauce served over fluffy Japanese rice with sesame topping.
-                    </p>
-                    <div class="menu-details">
-                        <div class="menu-price"><strong>RM 25</strong></div>
-                        <div class="menu-rating">⭐ 8.8/10</div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
-</section>
 
-    <!-- Location -->
-    <section class="location" id="location">
-        <div class="container">
-            <h2 class="section-title">Visit Us</h2>
-
-            <div class="location-container">
-                <div class="location-card">
-                    <div class="icon">📍</div>
-                    <h3>Waterfront Main Branch</h3>
-                    <p>Kuching Waterfront Plaza</p>
-                    <p class="phone">+60 82 123 4567</p>
-                </div>
+    <!-- Stats Section -->
+    <section class="admin-stats">
+        <div class="admin-container">
+            <div class="stat-card">
+                <h3>Total Items</h3>
+                <p class="stat-number" id="totalItems">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Average Rating</h3>
+                <p class="stat-number" id="avgRating">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Total Value</h3>
+                <p class="stat-number" id="totalValue">RM 0</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section class="about" id="contact">
-        <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <div class="about-content">
-                <p>Email: hello@sangajapanese.com</p>
-            </div>
+    <!-- Action Buttons -->
+    <footer class="admin-footer">
+        <div class="admin-container">
+            <button id="clearAllBtn" class="btn btn-danger">Clear All Data</button>
+            <button id="exportBtn" class="btn btn-secondary">Export Data</button>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Sanga Japanese Restaurant</p>
     </footer>
 
-    
+    <script src="main.js"></script>
+    <script src="admin.js"></script>
 </body>
 </html>
