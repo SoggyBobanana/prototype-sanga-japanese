@@ -28,4 +28,4 @@ addCustomer("Alice");
 addCustomer("Bob");
 addCustomer("Charlie");
 
-deleteCustomer(1); 
+deleteCustomer(1);
