@@ -1,29 +1,28 @@
 # prototype-sanga-japanese
 
-## Run a local static server
+A responsive Japanese-themed website with admin dashboard features built using HTML, CSS and JS
 
-This repository includes a small Node.js static server in `server.js`.
+# Features
+- Responsive design
+- Admin dashboard page
+- Image gallery
+- Navigation system
 
-Start a server on any port with:
+# Tech Stack
+- HTML
+- CSS
+- JS
 
-```bash
-node server.js 5500
-```
+# Project structures
+/assets
+/css
+/js
+index.html
+admin.html
 
-Then open one of the pages:
+# Future improvements 
+- Add database integration
+- Improve admin authenication
+- Add backend API
 
-- `http://127.0.0.1:5500/index.html`
-- `http://127.0.0.1:5500/admin.html`
-
-If you want a second port, run another instance on a different port:
-
-```bash
-node server.js 5501
-```
-
-Then open the same files on the second port:
-
-- `http://127.0.0.1:5501/admin.html`
-- `http://127.0.0.1:5501/index.html`
-
-This lets you use multiple localhost ports at once.
+Created by : SoggyBobanana
